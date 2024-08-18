@@ -82,39 +82,39 @@ services:
       - mailing_service
 
   # Scheduler Service
-  scheduler:
-    container_name: "Laravel_Scheduler"
-    restart: always
-    build:
-      context: .
-      dockerfile: dockerfiles/laravel.dockerfile
-    environment:
-      APP_NAME: Mailing Service
-      APP_ENV: "${APP_ENV}"
-      APP_DEBUG: 'true'
-      APP_URL: http://127.0.0.1:8000
-      DASHBOARD_URL: http://127.0.0.1:80
+#   scheduler:
+#     container_name: "Laravel_Scheduler"
+#     restart: always
+#     build:
+#       context: .
+#       dockerfile: dockerfiles/laravel.dockerfile
+#     environment:
+#       APP_NAME: Mailing Service
+#       APP_ENV: "${APP_ENV}"
+#       APP_DEBUG: 'true'
+#       APP_URL: http://127.0.0.1:8000
+#       DASHBOARD_URL: http://127.0.0.1:80
 
-      DB_CONNECTION: "${DB_CONNECTION}"
-      DB_HOST: database
-      DB_PORT: "${DB_PORT}"
-      DB_DATABASE: "${DB_DATABASE}"
-      DB_USERNAME: "${DB_USERNAME}"
-      DB_PASSWORD: "${DB_PASSWORD}"
+#       DB_CONNECTION: "${DB_CONNECTION}"
+#       DB_HOST: database
+#       DB_PORT: "${DB_PORT}"
+#       DB_DATABASE: "${DB_DATABASE}"
+#       DB_USERNAME: "${DB_USERNAME}"
+#       DB_PASSWORD: "${DB_PASSWORD}"
 
-      MAIL_MAILER: "${MAIL_MAILER}"
-      MAIL_HOST: "${MAIL_HOST}"
-      MAIL_PORT: "${MAIL_PORT}"
-      MAIL_USERNAME: "${MAIL_USERNAME}"
-      MAIL_PASSWORD: "${MAIL_PASSWORD}"
-      MAIL_ENCRYPTION: "${MAIL_ENCRYPTION}"
-      MAIL_FROM_ADDRESS: "${MAIL_FROM_ADDRESS}"
-      MAIL_FROM_NAME: "${MAIL_FROM_NAME}"
+#       MAIL_MAILER: "${MAIL_MAILER}"
+#       MAIL_HOST: "${MAIL_HOST}"
+#       MAIL_PORT: "${MAIL_PORT}"
+#       MAIL_USERNAME: "${MAIL_USERNAME}"
+#       MAIL_PASSWORD: "${MAIL_PASSWORD}"
+#       MAIL_ENCRYPTION: "${MAIL_ENCRYPTION}"
+#       MAIL_FROM_ADDRESS: "${MAIL_FROM_ADDRESS}"
+#       MAIL_FROM_NAME: "${MAIL_FROM_NAME}"
 
-    command: >
-      sh -c "php artisan schedule:work"
-    depends_on:
-      - app
-      - mailpit
-    networks:
-      - mailing_service
+#     command: >
+#       sh -c "php artisan schedule:work"
+#     depends_on:
+#       - app
+#       - mailpit
+#     networks:
+#       - mailing_service

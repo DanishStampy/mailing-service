@@ -2,6 +2,7 @@ FROM php:latest
 
 WORKDIR /app
 
+ENV COMPOSER_ALLOW_SUPERUSER=1
 RUN apt-get update && apt-get install -y \
     libpng-dev \
     libjpeg-dev \
