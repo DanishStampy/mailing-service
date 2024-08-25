@@ -16,7 +16,7 @@ services:
       APP_NAME: Mailing Service
       APP_ENV: "${APP_ENV}"
       APP_DEBUG: 'true'
-      APP_URL: http://app:8000
+      APP_URL: http://app:8081
       DASHBOARD_URL: http://127.0.0.1:80
 
       DB_CONNECTION: "${DB_CONNECTION}"
