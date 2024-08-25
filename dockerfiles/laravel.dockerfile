@@ -1,5 +1,8 @@
 FROM php:latest
 
+WORKDIR /app
+
+ENV COMPOSER_ALLOW_SUPERUSER=1
 RUN apt-get update && apt-get install -y \
     libpng-dev \
     libjpeg-dev \
@@ -17,10 +20,6 @@ RUN apt-get update && apt-get install -y \
 RUN curl -sS https://getcomposer.org/installer | php -- \
      --install-dir=/usr/local/bin --filename=composer
 
-WORKDIR /app
-
-COPY composer.json composer.lock ./
-COPY . .
-COPY .env .env
+COPY .. .
 
 RUN composer install --no-dev --optimize-autoloader --ignore-platform-reqs
